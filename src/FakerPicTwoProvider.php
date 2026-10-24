@@ -5,14 +5,14 @@ namespace Toneflix\FakerPicTwo;
 use Faker\Provider\Base as BaseProvider;
 
 /**
- * Depends on image generation from https://lorem.toneflix.com.ng/
+ * Depends on image generation from https://pictwo.toneflix.net/
  */
 class FakerPicTwoProvider extends BaseProvider
 {
     /**
      * @var string
      */
-    public const BASE_URL = 'https://lorem.toneflix.com.ng/images';
+    public const BASE_URL = 'https://pictwo.toneflix.net/images';
 
     public const FORMAT_JPG = 'jpg';
     public const FORMAT_JPEG = 'jpeg';
@@ -32,7 +32,7 @@ class FakerPicTwoProvider extends BaseProvider
      *
      * Set randomize to false to remove the random GET parameter at the end of the url.
      *
-     * @example 'https://lorem.toneflix.com.ng/images?w=800&h=400'
+     * @example 'https://pictwo.toneflix.net/images?w=800&h=400'
      *
      * @param int         $width
      * @param int         $height

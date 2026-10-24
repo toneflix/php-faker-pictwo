@@ -6,7 +6,7 @@
 
 ## Introduction
 
-Alternative image provider for [fakerphp](https://github.com/fakerphp/faker) using [lorem.toneflix.com.ng](https://lorem.toneflix.com.ng)
+Alternative image provider for [fakerphp](https://github.com/fakerphp/faker) using [pictwo.toneflix.net](https://pictwo.toneflix.net)
 
 ## Installation
 
@@ -22,17 +22,17 @@ composer require --dev toneflix/faker-pictwo
 $faker = \Faker\Factory::create();
 $faker->addProvider(new \Toneflix\FakerPicTwo\FakerPicTwoProvider($faker));
 
-// return a string that contains a url like 'https://lorem.toneflix.com.ng/images/avatar?w=800&h=600'
+// return a string that contains a url like 'https://pictwo.toneflix.net/images/avatar?w=800&h=600'
 $faker->imageUrl(width: 800, height: 600, category: 'avatar');
 
-// download a properly sized image from lorem toneflix into a file with a file path like '/tmp/13b73edae8443990be1aa8f1a483bc27.jpg'
+// download a properly sized image from pictwo.toneflix.net into a file with a file path like '/tmp/13b73edae8443990be1aa8f1a483bc27.jpg'
 $filePath= $faker->image(dir: '/tmp', width: 640, height: 480);
 ```
 
 Also, there are some more options :
 
 -   effects (grayscale, pixelate)
--   returning a specific photo based on an id instead of a random one (ex: https://lorem.toneflix.com.ng/images/image/00020)
+-   returning a specific photo based on an id instead of a random one (ex: https://pictwo.toneflix.net/images/image/00020)
 
 ## Testing
 

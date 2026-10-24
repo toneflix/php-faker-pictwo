@@ -10,7 +10,7 @@ class FakerPicTwoProviderTest extends TestCase
     public function testImageUrlUses640x680AsTheDefaultSize()
     {
         $this->assertMatchesRegularExpression(
-            '#^https://lorem.toneflix.com.ng/images\?w=640&h=480#',
+            '#^https://pictwo.toneflix.net/images\?w=640&h=480#',
             FakerPicTwoProvider::imageUrl()
         );
     }
@@ -18,7 +18,7 @@ class FakerPicTwoProviderTest extends TestCase
     public function testImageUrlAcceptsCustomWidthAndHeight()
     {
         $this->assertMatchesRegularExpression(
-            '#^https://lorem.toneflix.com.ng/images\?w=800&h=400#',
+            '#^https://pictwo.toneflix.net/images\?w=800&h=400#',
             FakerPicTwoProvider::imageUrl(800, 400)
         );
     }
@@ -26,7 +26,7 @@ class FakerPicTwoProviderTest extends TestCase
     public function testImageUrlWithPixelate()
     {
         $this->assertMatchesRegularExpression(
-            '#^https://lorem.toneflix.com.ng/images\?w=800&h=400&pixelate=#',
+            '#^https://pictwo.toneflix.net/images\?w=800&h=400&pixelate=#',
             FakerPicTwoProvider::imageUrl(800, 400, null, false, null, false, 5)
         );
     }
@@ -34,7 +34,7 @@ class FakerPicTwoProviderTest extends TestCase
     public function testImageUrlWithText()
     {
         $this->assertMatchesRegularExpression(
-            '#^https://lorem.toneflix.com.ng/images\?w=800&h=400&text=Hello#',
+            '#^https://pictwo.toneflix.net/images\?w=800&h=400&text=Hello#',
             FakerPicTwoProvider::imageUrl(800, 400, null, false, 'Hello', false)
         );
     }
@@ -42,7 +42,7 @@ class FakerPicTwoProviderTest extends TestCase
     public function testImageUrlGrey()
     {
         $this->assertMatchesRegularExpression(
-            '#^https://lorem.toneflix.com.ng/images\?w=800&h=400&greyscale=#',
+            '#^https://pictwo.toneflix.net/images\?w=800&h=400&greyscale=#',
             FakerPicTwoProvider::imageUrl(800, 400, null, false, null, true)
         );
     }
@@ -50,7 +50,7 @@ class FakerPicTwoProviderTest extends TestCase
     public function testImageUrlWithCategoryAndCustomWidthAndHeight()
     {
         $this->assertMatchesRegularExpression(
-            '#^https://lorem.toneflix.com.ng/images/avatar\?w=800&h=400#',
+            '#^https://pictwo.toneflix.net/images/avatar\?w=800&h=400#',
             FakerPicTwoProvider::imageUrl(800, 400, 'avatar')
         );
     }
@@ -67,7 +67,7 @@ class FakerPicTwoProviderTest extends TestCase
             5
         );
 
-        $this->assertSame('https://lorem.toneflix.com.ng/images?w=800&h=400&greyscale=true&pixelate=5', $imageUrl);
+        $this->assertSame('https://pictwo.toneflix.net/images?w=800&h=400&greyscale=true&pixelate=5', $imageUrl);
     }
 
     public function testImageUrlAddsARandomGetParameterByDefault()
