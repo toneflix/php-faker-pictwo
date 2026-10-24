@@ -1,5 +1,5 @@
 {
-    "name": "toneflix-code/fakerphp-lorem-toneflix",
+    "name": "toneflix/faker-pictwo",
     "description": "An alternative image provider for fakerphp using Lorem Toneflix.",
     "keywords": [
         "faker",
@@ -21,26 +21,26 @@
         }
     ],
     "require": {
-        "php": "^8.0|^8.1|8.2|8.3",
-        "fakerphp/faker": "^1.10|^1.20"
+        "php": "^8.3|^8.4",
+        "fakerphp/faker": "^1.23"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "^3.0",
-        "phpunit/phpunit": "^9.5",
+        "friendsofphp/php-cs-fixer": "^3.75",
+        "phpunit/phpunit": "^11.5",
         "spatie/ray": "^1.28",
-        "vimeo/psalm": "^4.8"
+        "vimeo/psalm": "^6.0"
     },
     "suggest": {
         "ext-curl": "*"
     },
     "autoload": {
         "psr-4": {
-            "ToneflixCode\\FakerLoremToneflix\\": "src"
+            "Toneflix\\FakerPicTwo\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "ToneflixCode\\FakerLoremToneflix\\Tests\\": "tests"
+            "Toneflix\\FakerPicTwo\\Tests\\": "tests"
         }
     },
     "scripts": {

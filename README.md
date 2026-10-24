@@ -1,8 +1,8 @@
-# Fakerphp Lorem Toneflix Images
+# Faker PicTwo
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/toneflix-code/fakerphp-lorem-toneflix.svg?style=flat-square)](https://packagist.org/packages/toneflix-code/fakerphp-lorem-toneflix)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/toneflix/faker-pictwo.svg?style=flat-square)](https://packagist.org/packages/toneflix/faker-pictwo)
 [![Tests](https://github.com/toneflix/fakerphp-lorem-toneflix/actions/workflows/run-tests.yml/badge.svg)](https://github.com/toneflix/fakerphp-lorem-toneflix/actions/workflows/run-tests.yml)
-[![Total Downloads](https://img.shields.io/packagist/dt/toneflix-code/fakerphp-lorem-toneflix.svg?style=flat-square)](https://packagist.org/packages/toneflix-code/fakerphp-lorem-toneflix)
+[![Total Downloads](https://img.shields.io/packagist/dt/toneflix/faker-pictwo.svg?style=flat-square)](https://packagist.org/packages/toneflix/faker-pictwo)
 
 ## Introduction
 
@@ -13,14 +13,14 @@ Alternative image provider for [fakerphp](https://github.com/fakerphp/faker) usi
 You can install the package via composer in dev dependency section:
 
 ```bash
-composer require --dev toneflix-code/fakerphp-lorem-toneflix
+composer require --dev toneflix/faker-pictwo
 ```
 
 ## Usage
 
 ```php
 $faker = \Faker\Factory::create();
-$faker->addProvider(new \ToneflixCode\FakerLoremToneflix\FakerLoremToneflixProvider($faker));
+$faker->addProvider(new \Toneflix\FakerPicTwo\FakerPicTwoProvider($faker));
 
 // return a string that contains a url like 'https://lorem.toneflix.com.ng/images/avatar?w=800&h=600'
 $faker->imageUrl(width: 800, height: 600, category: 'avatar');

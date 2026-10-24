@@ -1,17 +1,17 @@
 <?php
 
-namespace ToneflixCode\FakerLoremToneflix\Tests;
+namespace Toneflix\FakerPicTwo\Tests;
 
 use PHPUnit\Framework\TestCase;
-use ToneflixCode\FakerLoremToneflix\FakerLoremToneflixProvider;
+use Toneflix\FakerPicTwo\FakerPicTwoProvider;
 
-class FakerLoremToneflixProviderTest extends TestCase
+class FakerPicTwoProviderTest extends TestCase
 {
     public function testImageUrlUses640x680AsTheDefaultSize()
     {
         $this->assertMatchesRegularExpression(
             '#^https://lorem.toneflix.com.ng/images\?w=640&h=480#',
-            FakerLoremToneflixProvider::imageUrl()
+            FakerPicTwoProvider::imageUrl()
         );
     }
 
@@ -19,7 +19,7 @@ class FakerLoremToneflixProviderTest extends TestCase
     {
         $this->assertMatchesRegularExpression(
             '#^https://lorem.toneflix.com.ng/images\?w=800&h=400#',
-            FakerLoremToneflixProvider::imageUrl(800, 400)
+            FakerPicTwoProvider::imageUrl(800, 400)
         );
     }
 
@@ -27,7 +27,7 @@ class FakerLoremToneflixProviderTest extends TestCase
     {
         $this->assertMatchesRegularExpression(
             '#^https://lorem.toneflix.com.ng/images\?w=800&h=400&pixelate=#',
-            FakerLoremToneflixProvider::imageUrl(800, 400, null, false, null, false, 5)
+            FakerPicTwoProvider::imageUrl(800, 400, null, false, null, false, 5)
         );
     }
 
@@ -35,7 +35,7 @@ class FakerLoremToneflixProviderTest extends TestCase
     {
         $this->assertMatchesRegularExpression(
             '#^https://lorem.toneflix.com.ng/images\?w=800&h=400&text=Hello#',
-            FakerLoremToneflixProvider::imageUrl(800, 400, null, false, 'Hello', false)
+            FakerPicTwoProvider::imageUrl(800, 400, null, false, 'Hello', false)
         );
     }
 
@@ -43,7 +43,7 @@ class FakerLoremToneflixProviderTest extends TestCase
     {
         $this->assertMatchesRegularExpression(
             '#^https://lorem.toneflix.com.ng/images\?w=800&h=400&greyscale=#',
-            FakerLoremToneflixProvider::imageUrl(800, 400, null, false, null, true)
+            FakerPicTwoProvider::imageUrl(800, 400, null, false, null, true)
         );
     }
 
@@ -51,13 +51,13 @@ class FakerLoremToneflixProviderTest extends TestCase
     {
         $this->assertMatchesRegularExpression(
             '#^https://lorem.toneflix.com.ng/images/avatar\?w=800&h=400#',
-            FakerLoremToneflixProvider::imageUrl(800, 400, 'avatar')
+            FakerPicTwoProvider::imageUrl(800, 400, 'avatar')
         );
     }
 
     public function testImageUrlWithGreyAndPixelate()
     {
-        $imageUrl = FakerLoremToneflixProvider::imageUrl(
+        $imageUrl = FakerPicTwoProvider::imageUrl(
             800,
             400,
             null,
@@ -72,7 +72,7 @@ class FakerLoremToneflixProviderTest extends TestCase
 
     public function testImageUrlAddsARandomGetParameterByDefault()
     {
-        $url = FakerLoremToneflixProvider::imageUrl(800, 400);
+        $url = FakerPicTwoProvider::imageUrl(800, 400);
         $splitUrl = explode('?', $url);
 
         $this->assertEquals(count($splitUrl), 2);
@@ -81,7 +81,7 @@ class FakerLoremToneflixProviderTest extends TestCase
 
     public function testImageDownloadWithDefaults()
     {
-        $file = FakerLoremToneflixProvider::image(sys_get_temp_dir());
+        $file = FakerPicTwoProvider::image(sys_get_temp_dir());
         $this->assertFileExists($file);
         if (function_exists('getimagesize')) {
             list($width, $height, $type) = getimagesize($file);

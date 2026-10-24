@@ -1,13 +1,13 @@
 <?php
 
-namespace ToneflixCode\FakerLoremToneflix;
+namespace Toneflix\FakerPicTwo;
 
 use Faker\Provider\Base as BaseProvider;
 
 /**
  * Depends on image generation from https://lorem.toneflix.com.ng/
  */
-class FakerLoremToneflixProvider extends BaseProvider
+class FakerPicTwoProvider extends BaseProvider
 {
     /**
      * @var string
