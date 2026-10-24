@@ -82,6 +82,11 @@ class FakerPicTwoProviderTest extends TestCase
     public function testImageDownloadWithDefaults()
     {
         $file = FakerPicTwoProvider::image(sys_get_temp_dir());
+
+        if ($file === false) {
+            $this->markTestSkipped('Could not reach ' . FakerPicTwoProvider::BASE_URL . ' to download a test image.');
+        }
+
         $this->assertFileExists($file);
         if (function_exists('getimagesize')) {
             list($width, $height, $type) = getimagesize($file);
