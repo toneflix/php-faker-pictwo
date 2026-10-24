@@ -13,4 +13,13 @@
             <directory name="vendor"/>
         </ignoreFiles>
     </projectFiles>
+    <issueHandlers>
+        <!-- FakerPicTwoProvider is this package's public entry point, consumed
+             by other projects (e.g. laravel-op's Faker binding), not dead code. -->
+        <UnusedClass>
+            <errorLevel type="suppress">
+                <directory name="src"/>
+            </errorLevel>
+        </UnusedClass>
+    </issueHandlers>
 </psalm>

@@ -1,63 +1,63 @@
 <?php
 
-namespace ToneflixCode\FakerLoremToneflix\Tests;
+namespace Toneflix\FakerPicTwo\Tests;
 
 use PHPUnit\Framework\TestCase;
-use ToneflixCode\FakerLoremToneflix\FakerLoremToneflixProvider;
+use Toneflix\FakerPicTwo\FakerPicTwoProvider;
 
-class FakerLoremToneflixProviderTest extends TestCase
+class FakerPicTwoProviderTest extends TestCase
 {
     public function testImageUrlUses640x680AsTheDefaultSize()
     {
         $this->assertMatchesRegularExpression(
-            '#^https://lorem.toneflix.com.ng/images\?w=640&h=480#',
-            FakerLoremToneflixProvider::imageUrl()
+            '#^https://pictwo.toneflix.net/images\?w=640&h=480#',
+            FakerPicTwoProvider::imageUrl()
         );
     }
 
     public function testImageUrlAcceptsCustomWidthAndHeight()
     {
         $this->assertMatchesRegularExpression(
-            '#^https://lorem.toneflix.com.ng/images\?w=800&h=400#',
-            FakerLoremToneflixProvider::imageUrl(800, 400)
+            '#^https://pictwo.toneflix.net/images\?w=800&h=400#',
+            FakerPicTwoProvider::imageUrl(800, 400)
         );
     }
 
     public function testImageUrlWithPixelate()
     {
         $this->assertMatchesRegularExpression(
-            '#^https://lorem.toneflix.com.ng/images\?w=800&h=400&pixelate=#',
-            FakerLoremToneflixProvider::imageUrl(800, 400, null, false, null, false, 5)
+            '#^https://pictwo.toneflix.net/images\?w=800&h=400&pixelate=#',
+            FakerPicTwoProvider::imageUrl(800, 400, null, false, null, false, 5)
         );
     }
 
     public function testImageUrlWithText()
     {
         $this->assertMatchesRegularExpression(
-            '#^https://lorem.toneflix.com.ng/images\?w=800&h=400&text=Hello#',
-            FakerLoremToneflixProvider::imageUrl(800, 400, null, false, 'Hello', false)
+            '#^https://pictwo.toneflix.net/images\?w=800&h=400&text=Hello#',
+            FakerPicTwoProvider::imageUrl(800, 400, null, false, 'Hello', false)
         );
     }
 
     public function testImageUrlGrey()
     {
         $this->assertMatchesRegularExpression(
-            '#^https://lorem.toneflix.com.ng/images\?w=800&h=400&greyscale=#',
-            FakerLoremToneflixProvider::imageUrl(800, 400, null, false, null, true)
+            '#^https://pictwo.toneflix.net/images\?w=800&h=400&greyscale=#',
+            FakerPicTwoProvider::imageUrl(800, 400, null, false, null, true)
         );
     }
 
     public function testImageUrlWithCategoryAndCustomWidthAndHeight()
     {
         $this->assertMatchesRegularExpression(
-            '#^https://lorem.toneflix.com.ng/images/avatar\?w=800&h=400#',
-            FakerLoremToneflixProvider::imageUrl(800, 400, 'avatar')
+            '#^https://pictwo.toneflix.net/images/avatar\?w=800&h=400#',
+            FakerPicTwoProvider::imageUrl(800, 400, 'avatar')
         );
     }
 
     public function testImageUrlWithGreyAndPixelate()
     {
-        $imageUrl = FakerLoremToneflixProvider::imageUrl(
+        $imageUrl = FakerPicTwoProvider::imageUrl(
             800,
             400,
             null,
@@ -67,12 +67,12 @@ class FakerLoremToneflixProviderTest extends TestCase
             5
         );
 
-        $this->assertSame('https://lorem.toneflix.com.ng/images?w=800&h=400&greyscale=true&pixelate=5', $imageUrl);
+        $this->assertSame('https://pictwo.toneflix.net/images?w=800&h=400&greyscale=true&pixelate=5', $imageUrl);
     }
 
     public function testImageUrlAddsARandomGetParameterByDefault()
     {
-        $url = FakerLoremToneflixProvider::imageUrl(800, 400);
+        $url = FakerPicTwoProvider::imageUrl(800, 400);
         $splitUrl = explode('?', $url);
 
         $this->assertEquals(count($splitUrl), 2);
@@ -81,7 +81,12 @@ class FakerLoremToneflixProviderTest extends TestCase
 
     public function testImageDownloadWithDefaults()
     {
-        $file = FakerLoremToneflixProvider::image(sys_get_temp_dir());
+        $file = FakerPicTwoProvider::image(sys_get_temp_dir());
+
+        if ($file === false) {
+            $this->markTestSkipped('Could not reach ' . FakerPicTwoProvider::BASE_URL . ' to download a test image.');
+        }
+
         $this->assertFileExists($file);
         if (function_exists('getimagesize')) {
             list($width, $height, $type) = getimagesize($file);

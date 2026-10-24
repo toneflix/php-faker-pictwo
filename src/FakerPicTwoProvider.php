@@ -1,18 +1,18 @@
 <?php
 
-namespace ToneflixCode\FakerLoremToneflix;
+namespace Toneflix\FakerPicTwo;
 
 use Faker\Provider\Base as BaseProvider;
 
 /**
- * Depends on image generation from https://lorem.toneflix.com.ng/
+ * Depends on image generation from https://pictwo.toneflix.net/
  */
-class FakerLoremToneflixProvider extends BaseProvider
+class FakerPicTwoProvider extends BaseProvider
 {
     /**
      * @var string
      */
-    public const BASE_URL = 'https://lorem.toneflix.com.ng/images';
+    public const BASE_URL = 'https://pictwo.toneflix.net/images';
 
     public const FORMAT_JPG = 'jpg';
     public const FORMAT_JPEG = 'jpeg';
@@ -32,7 +32,7 @@ class FakerLoremToneflixProvider extends BaseProvider
      *
      * Set randomize to false to remove the random GET parameter at the end of the url.
      *
-     * @example 'https://lorem.toneflix.com.ng/images?w=800&h=400'
+     * @example 'https://pictwo.toneflix.net/images?w=800&h=400'
      *
      * @param int         $width
      * @param int         $height
@@ -48,12 +48,12 @@ class FakerLoremToneflixProvider extends BaseProvider
     public static function imageUrl(
         int $width = 640,
         int $height = 480,
-        string $category = null,
+        ?string $category = null,
         bool $randomize = true,
-        string $text = null,
+        ?string $text = null,
         bool $grey = false,
-        int $pixelate = null,
-        string  $format = 'png'
+        ?int $pixelate = null,
+        string $format = 'png'
     ): string {
         // Validate image format
         $imageFormats = static::getFormats();
@@ -106,16 +106,16 @@ class FakerLoremToneflixProvider extends BaseProvider
      * @return bool|string
      */
     public static function image(
-        string $dir = null,
+        ?string $dir = null,
         int $width = 640,
         int $height = 480,
-        string $category = null,
+        ?string $category = null,
         bool $fullPath = true,
         bool $randomize = true,
-        string $text = null,
+        ?string $text = null,
         bool $grey = false,
-        int $pixelate = null,
-        string  $format = 'png'
+        ?int $pixelate = null,
+        string $format = 'png'
     ): string|bool {
         $dir = null === $dir ? sys_get_temp_dir() : $dir; // GNU/Linux / OS X / Windows compatible
 
@@ -157,9 +157,7 @@ class FakerLoremToneflixProvider extends BaseProvider
                 return false;
             }
         } else {
-            new \RuntimeException('The image formatter downloads an image from a remote HTTP server. Therefore, it requires that PHP can request remote hosts, either via cURL or fopen()');
-
-            return false;
+            throw new \RuntimeException('The image formatter downloads an image from a remote HTTP server. Therefore, it requires that PHP can request remote hosts, either via cURL or fopen()');
         }
 
         return $fullPath ? $filepath : $filename;
