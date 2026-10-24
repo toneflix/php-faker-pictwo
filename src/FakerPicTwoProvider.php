@@ -24,7 +24,8 @@ class FakerPicTwoProvider extends BaseProvider
      *
      */
     protected static $categories = [
-        'poster', 'event', 'album', 'avatar', 'nature', 'people', 'technology', 'house',
+        'african-fashion', 'album', 'avatar', 'cars', 'design', 'event', 'fabric',
+        'fashion', 'nature', 'people', 'poster', 'product', 'profile', 'robots', 'technology',
     ];
 
     /**
