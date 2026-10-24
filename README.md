@@ -1,7 +1,7 @@
 # Faker PicTwo
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/toneflix/faker-pictwo.svg?style=flat-square)](https://packagist.org/packages/toneflix/faker-pictwo)
-[![Tests](https://github.com/toneflix/fakerphp-lorem-toneflix/actions/workflows/run-tests.yml/badge.svg)](https://github.com/toneflix/fakerphp-lorem-toneflix/actions/workflows/run-tests.yml)
+[![Tests](https://github.com/toneflix/php-faker-pictwo/actions/workflows/run-tests.yml/badge.svg)](https://github.com/toneflix/php-faker-pictwo/actions/workflows/run-tests.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/toneflix/faker-pictwo.svg?style=flat-square)](https://packagist.org/packages/toneflix/faker-pictwo)
 
 ## Introduction
@@ -31,8 +31,10 @@ $filePath= $faker->image(dir: '/tmp', width: 640, height: 480);
 
 Also, there are some more options :
 
--   effects (grayscale, pixelate)
--   returning a specific photo based on an id instead of a random one (ex: https://pictwo.toneflix.net/images/image/00020)
+-   effects (`grey` for greyscale, `pixelate` for a pixelation level)
+-   an optional `text` overlay
+-   a `category` to restrict the image to (`avatar`, `fashion`, `african-fashion`, `fabric`, `product`, `profile`, `design`, `nature`, `people`, `poster`, `event`, `album`, `cars`, `robots`, `technology`)
+-   `randomize: false` to drop the cache-busting random query parameter, so the same call returns a stable URL
 
 ## Testing
 
