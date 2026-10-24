@@ -79,6 +79,28 @@ class FakerPicTwoProviderTest extends TestCase
         $this->assertMatchesRegularExpression('#random=\d{5}#', $splitUrl[1]);
     }
 
+    public function testImageUrlAcceptsAllRealPictwoCategories()
+    {
+        $categories = [
+            'african-fashion', 'album', 'avatar', 'cars', 'design', 'event', 'fabric',
+            'fashion', 'nature', 'people', 'poster', 'product', 'profile', 'robots', 'technology',
+        ];
+
+        foreach ($categories as $category) {
+            $this->assertMatchesRegularExpression(
+                '#^https://pictwo\.toneflix\.net/images/' . preg_quote($category, '#') . '\?#',
+                FakerPicTwoProvider::imageUrl(category: $category)
+            );
+        }
+    }
+
+    public function testImageUrlRejectsAStaleUnsupportedCategory()
+    {
+        $this->expectException(\InvalidArgumentException::class);
+
+        FakerPicTwoProvider::imageUrl(category: 'house');
+    }
+
     public function testImageDownloadWithDefaults()
     {
         $file = FakerPicTwoProvider::image(sys_get_temp_dir());
