@@ -5,7 +5,6 @@
     bootstrap="vendor/autoload.php"
     colors="true"
     executionOrder="random"
-    failOnWarning="true"
     failOnRisky="true"
     failOnEmptyTestSuite="true"
     beStrictAboutOutputDuringTests="true"
